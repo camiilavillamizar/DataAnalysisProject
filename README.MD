@@ -7,11 +7,11 @@ This project is designed to analyze airplane accident data using Python. The goa
 This project follows several key coding principles and conventions:
 
 - **SOLID Principles**: The code is organized according to SOLID principles, ensuring that it is modular, maintainable, and scalable.
-- **Camel Case Naming**: All variable and function names use camel case for consistency and readability (e.g., `loadData`, `dataLoader`).
+- **Snake Case Naming**: All variable and function names use snake case for consistency and readability (e.g., `load_data`, `data_loader`).
 - **Modular Architecture**: The code is divided into separate, well-defined modules to separate concerns and improve reusability.
 
 ### Folder Structure
-
+- **Snake Case Naming**: All variable and function names use snake case for consistency and readability (e.g., `load_data`, `data_loader`).
 - **data/**: Folder containing the project's data.
   - **final tables/**: Contains the final dataset (`fullData_V1.csv`) used for analysis.
   - **filtered tables/**: Folder for filtered data.
