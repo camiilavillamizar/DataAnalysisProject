@@ -34,3 +34,41 @@ This project follows several key coding principles and conventions:
 - **README.md**: This instructions file.
 
 
+
+## Setup Instructions
+
+Follow these steps to set up the project locally.
+
+### Step 1: Clone the Repository
+Clone the GitHub repository to your local machine:
+
+```bash
+git clone https://github.com/camiilavillamizar/DataAnalysisProject.git
+```
+
+### Step 2: Set Up Virtual Environment
+
+#### Windows
+```bash
+python -m venv venv
+venv\Scripts\activate
+
+```
+#### MacOS/Linux
+```bash
+python3 -m venv venv
+source venv/bin/activate
+
+```
+
+### Step 3: Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### Step 4: Run Jupyter Notebook
+```bash
+cd notebooks
+jupyter notebook
+
+```
