@@ -1,2 +1,2 @@
 
-COLUMNS_TO_TRANSLATE = ["Summary", "CommonName", "ICAO_DisplayEng"]
+COLUMNS_TO_TRANSLATE = ["Summary","ICAO_DisplayEng"]
