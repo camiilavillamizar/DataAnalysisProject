@@ -1,11 +1,10 @@
 import os
+from .constants_common import DATA_PATH
 
 def is_next_version(version_number):
-    #Path
-    data_path = "ruta/a/tu/directorio/data"  # Cambia esto a la ruta correcta
 
     #Get list of files
-    files = os.listdir(data_path)
+    files = os.listdir(DATA_PATH)
 
     #Filter files that have the pattern
     versions = [
