@@ -66,7 +66,12 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### Step 4: Run Jupyter Notebook
+### Step 4: Configure jupyter kernel
+```bash
+& ".\venv\Scripts\python.exe" -m ipykernel install --user --name=venv --display-name "DA Project env"
+```
+
+### Step 5: Run Jupyter Notebook
 ```bash
 cd notebooks
 jupyter notebook
