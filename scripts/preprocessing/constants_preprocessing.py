@@ -194,3 +194,21 @@ COUNTRIES_COORDINATES = {
     "SUDAN": [15.5007, 32.5599],  # Khartoum
     "ETHIOPIA": [9.1450, 40.4897]  # Addis Ababa
 }
+
+COUNTRIES_CARDINAL_DIRECTIONS = {
+    'GERMANY': ['N', 'E'],          # Northern Hemisphere, Eastern Hemisphere
+    'UNITED KINGDOM': ['N', 'W'],   # Northern Hemisphere, Western Hemisphere
+    'DENMARK': ['N', 'E'],          # Northern Hemisphere, Eastern Hemisphere
+    'CANADA': ['N', 'W'],           # Northern Hemisphere, Western Hemisphere
+    'UNITED STATES': ['N', 'W'],    # Northern Hemisphere, Western Hemisphere
+    'IRELAND': ['N', 'W'],          # Northern Hemisphere, Western Hemisphere
+    'FRANCE': ['N', 'E'],           # Northern Hemisphere, Eastern Hemisphere
+    'SPAIN': ['N', 'W'],            # Northern Hemisphere, Western Hemisphere
+    'AZORES': ['N', 'W'],           # Northern Hemisphere, Western Hemisphere
+    'GREENLAND': ['N', 'W'],        # Northern Hemisphere, Western Hemisphere
+    'ICELAND': ['N', 'W'],          # Northern Hemisphere, Western Hemisphere
+}
+
+OCEAN_CARDINAL_DIRECTIONS = {
+    'NORTH ATLANTIC OCEAN': ['N', 'W']
+}
