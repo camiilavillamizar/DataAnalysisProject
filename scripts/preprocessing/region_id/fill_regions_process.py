@@ -7,7 +7,7 @@ def fill_regions_in_temp(df):
     df_filtered = df[["OccID", "Latitude", "Longitude"]].copy()
 
     df_filtered["PROVINCE"] = df_filtered.apply(
-    lambda row: get_region_by_coordinates(row["Latitude"], row["Longitude"]).upper(), axis=1
+    lambda row: (get_region_by_coordinates(row["Latitude"], row["Longitude"]) or "Unknown").upper(), axis=1
     )
 
     export_csv_temp(df_filtered, "null_provinces_filled")
