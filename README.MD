@@ -77,3 +77,27 @@ cd notebooks
 jupyter notebook
 
 ```
+
+## Adding new libraries 
+
+### Step 1: Activate the environment 
+#### Windows
+```bash
+venv\Scripts\activate
+```
+#### MacOS/Linux
+```bash
+source venv/bin/activate
+```
+### Step 2: download current libraries 
+```bash
+pip install -r requirements.txt
+```
+### Step 3: install the specific library 
+```bash
+pip install <library>
+```
+### Step 4: Update requirements
+```bash
+pip freeze > requirements.txt
+```
