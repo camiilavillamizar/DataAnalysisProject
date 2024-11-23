@@ -1,9 +1,13 @@
 import matplotlib.pyplot as plt
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
-from collections import Counter
 import numpy as np
 from scipy.stats import gaussian_kde
+import pandas as pd
+import geopandas as gpd
+import numpy as np
+import json
+from urllib.request import urlopen
 
 def plot_coordinates_heatmap(coordinates_list):
     """
@@ -91,3 +95,108 @@ def plot_coordinates_heatmap(coordinates_list):
     # Show the plot
     plt.tight_layout()
     plt.show()
+
+
+def create_canada_frequency_choropleth(data_df, figsize=(15, 10)):
+    """
+    Create a choropleth map of Canadian provinces showing frequency of occurrences.
+    Handles uppercase province names in the input data.
+    
+    Parameters:
+    -----------
+    data_df : pandas DataFrame
+        Input DataFrame containing:
+        - ProvinceID_DisplayEng: Province names in English (in uppercase)
+        - Latitude: Latitude values
+        - Longitude: Longitude values
+    figsize : tuple, optional
+        Figure size as (width, height)
+        
+    Returns:
+    --------
+    matplotlib.figure.Figure
+        The created figure object
+    """
+    
+    # Filter for Canadian coordinates
+    canada_data = data_df[
+        (data_df['Latitude'] > 0) & 
+        (data_df['Longitude'] < 0)
+    ].copy()
+    
+    # Create a mapping dictionary for uppercase province names
+    province_name_mapping = {
+        'ONTARIO': 'Ontario',
+        'QUEBEC': 'Québec',
+        'BRITISH COLUMBIA': 'British Columbia',
+        'ALBERTA': 'Alberta',
+        'MANITOBA': 'Manitoba',
+        'SASKATCHEWAN': 'Saskatchewan',
+        'NOVA SCOTIA': 'Nova Scotia',
+        'NEW BRUNSWICK': 'New Brunswick',
+        'NEWFOUNDLAND AND LABRADOR': 'Newfoundland and Labrador',
+        'PRINCE EDWARD ISLAND': 'Prince Edward Island',
+        'NORTHWEST TERRITORIES': 'Northwest Territories',
+        'YUKON': 'Yukon',
+        'NUNAVUT': 'Nunavut'
+    }
+    
+    # Map the province names to proper case
+    canada_data['ProvinceID_DisplayEng'] = canada_data['ProvinceID_DisplayEng'].map(province_name_mapping)
+    
+    # Calculate frequency of each province
+    province_frequencies = canada_data['ProvinceID_DisplayEng'].value_counts().reset_index()
+    province_frequencies.columns = ['ProvinceID_DisplayEng', 'Frequency']
+    
+    # Load Canada provinces GeoJSON
+    provinces_url = "https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/canada.geojson"
+    with urlopen(provinces_url) as response:
+        provinces_json = json.load(response)
+    
+    # Create GeoDataFrame from GeoJSON
+    provinces = gpd.GeoDataFrame.from_features(provinces_json["features"])
+    
+    # Merge frequency data with geographic information
+    provinces = provinces.merge(
+        province_frequencies,
+        left_on='name',
+        right_on='ProvinceID_DisplayEng',
+        how='left'
+    )
+    
+    # Create the figure and axis
+    _, ax = plt.subplots(1, 1, figsize=figsize)
+    
+    # Plot the choropleth
+    provinces.plot(
+        column='Frequency',
+        ax=ax,
+        legend=True,
+        legend_kwds={
+            'label': 'Frequency',
+            'orientation': 'vertical'
+        },
+        missing_kwds={
+            'color': 'lightgrey'
+        },
+        cmap='Blues',
+        edgecolor="Black",
+        linewidth=0.1
+    )
+    
+    # Customize the map
+    ax.axis('off')
+    ax.set_title('Frequency by Province', pad=20, fontsize=16)
+    
+    # Add province labels with frequencies
+    # for _, row in provinces.iterrows():
+    #     freq = row['Frequency']
+    #     label = f"{row['name']}\n({int(freq) if pd.notnull(freq) else 0})"
+    #     ax.annotate(
+    #         text=label,
+    #         xy=(row.geometry.centroid.x, row.geometry.centroid.y),
+    #         horizontalalignment='center',
+    #         fontsize=8
+    #     )
+    
+    plt.tight_layout()
