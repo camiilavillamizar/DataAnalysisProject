@@ -123,11 +123,11 @@ def create_canada_frequency_choropleth(data_df, figsize=(15, 10)):
         (data_df['Latitude'] > 0) & 
         (data_df['Longitude'] < 0)
     ].copy()
-    
+
     # Create a mapping dictionary for uppercase province names
     province_name_mapping = {
         'ONTARIO': 'Ontario',
-        'QUEBEC': 'Québec',
+        'QUEBEC': 'Quebec',
         'BRITISH COLUMBIA': 'British Columbia',
         'ALBERTA': 'Alberta',
         'MANITOBA': 'Manitoba',
@@ -137,7 +137,7 @@ def create_canada_frequency_choropleth(data_df, figsize=(15, 10)):
         'NEWFOUNDLAND AND LABRADOR': 'Newfoundland and Labrador',
         'PRINCE EDWARD ISLAND': 'Prince Edward Island',
         'NORTHWEST TERRITORIES': 'Northwest Territories',
-        'YUKON': 'Yukon',
+        'YUKON': 'Yukon Territory',
         'NUNAVUT': 'Nunavut'
     }
     

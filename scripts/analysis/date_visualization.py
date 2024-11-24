@@ -180,7 +180,7 @@ def visualize_quarterly_trend(df, figsize=(15, 7), min_frequency=10):
     quarterly_counts['x_position'] = quarterly_counts['Year'] + (quarterly_counts['Quarter']-1)/4
     
     # Create figure
-    fig, ax = plt.subplots(figsize=figsize)
+    _, ax = plt.subplots(figsize=figsize)
     
     # Define colors for quarters
     quarter_colors = {
