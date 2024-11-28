@@ -1,0 +1,30 @@
+from analysis.exploratory_analysis.marginal_probabilities.occurrence_by_province import plotMarginalProbabilitiesOfOccurrenceByProvince
+from analysis.exploratory_analysis.marginal_probabilities.damage_by_province import plotMarginalProbabilitiesOfDamageByProvince
+from analysis.exploratory_analysis.marginal_probabilities.operation_by_province import plotMarginalProbabilitiesOfOperartionByProvince, plotWithoutFirstTwoOperations
+from analysis.exploratory_analysis.marginal_probabilities.operator_by_province import plotMarginalProbabilitiesOfOperartorByProvince
+from analysis.exploratory_analysis.marginal_probabilities.aircraft_by_province import plotMarginalProbabilitiesOfAircraftByProvince, plotWithoutFirst2
+from analysis.exploratory_analysis.marginal_probabilities.injuries_by_province import plotMarginalProbabilitiesOInjuriesByProvince
+
+def getByProvince(marginal_probabilities):
+    return plotMarginalProbabilitiesOfOccurrenceByProvince(marginal_probabilities)
+
+def getByDamageLevelAndProvince(df):
+    return plotMarginalProbabilitiesOfDamageByProvince(df)
+
+def getByOperationAndProvince(marginal_probabilities):
+    return plotMarginalProbabilitiesOfOperartionByProvince(marginal_probabilities)
+
+def getByOperationAndProvinceWithoutFirst2(marginal_probabilities):
+    return plotWithoutFirstTwoOperations(marginal_probabilities)
+
+def getByOperatorAndProvince(marginal_probabilities):
+    return plotMarginalProbabilitiesOfOperartorByProvince(marginal_probabilities)
+
+def getByAircraftAndProvince(marginal_probabilities):
+    return plotMarginalProbabilitiesOfAircraftByProvince(marginal_probabilities)
+
+def getByAircraftAndProvinceWithoutFirst2(aircraft_types_filtered):
+    return plotWithoutFirst2(aircraft_types_filtered)
+
+def getByInjuriesAndProvince(marginal_probabilities):
+    return plotMarginalProbabilitiesOInjuriesByProvince(marginal_probabilities)
