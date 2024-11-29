@@ -16,6 +16,17 @@ def process_translation(df):
         )
     
     export_csv_temp(df_filtered, "eng_summaries")
+
+def process_translation_different_encoding(df):
+    df_filtered = df[["OccID", "Summary"]].copy()
+
+    for column in COLUMNS_TO_TRANSLATE:
+        df_filtered[column] = df_filtered[column].apply(
+            lambda x: translate_to_english(str(x).lower()) 
+        )
+
+    
+    export_csv_temp(df_filtered, "eng_summaries_P2")
     
 
 

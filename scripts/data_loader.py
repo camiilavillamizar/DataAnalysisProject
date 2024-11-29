@@ -14,3 +14,6 @@ def load_data_from_temp(filename):
 
 def load_data_from_filtered(filename):
     return load_data('filtered_tables', filename)
+
+def load_data_from_results(filename):
+    return load_data('results', filename)
