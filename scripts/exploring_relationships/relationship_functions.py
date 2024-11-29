@@ -1,0 +1,12 @@
+from exploring_relationships.birth_relationship import getRelationshipBirthsAndOccurrences
+from exploring_relationships.dollar_relationship import getRelationshipBetweenDollarExchangeAndOccurrences
+from exploring_relationships.passenger_traffic_relationship import getRelationshipBetweenPassengerTrafficAndOccurrences
+
+def getBirthRelation(df):
+    getRelationshipBirthsAndOccurrences(df)
+
+def getDollarRelation(df):
+    getRelationshipBetweenDollarExchangeAndOccurrences(df)
+
+def getPassengerTrafficRelation(df):
+    getRelationshipBetweenPassengerTrafficAndOccurrences(df)
