@@ -1,4 +1,4 @@
-# Airplane Accidents Analytics Project
+# Air Occurrences Reported to the TSB - Data Analysis Project
 
 This project is designed to analyze airplane accident data using Python. The goal is to study patterns in airplane accidents and incidents and extract meaningful insights from the data. The analysis includes data loading, processing, and visualization using various analytical techniques.
 
