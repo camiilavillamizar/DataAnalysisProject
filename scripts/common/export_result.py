@@ -8,4 +8,4 @@ def export_csv_result(data, name):
     full_path = os.path.join(RESULTS_PATH, file_name)
 
     data.to_csv(full_path, index=False)
-    print("File "+ file_name + " created in temp")
+    print("File "+ file_name + " created in results")
